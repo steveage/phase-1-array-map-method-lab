@@ -12,5 +12,19 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(upperCase);
+}
+
+function upperCase(tutorial) {
+  const tutorialWords = tutorial.split(/(\s+)/);
+  const upperCaseWords = tutorialWords.map(upperCaseWord);
+  const upperCaseTutorial = upperCaseWords.join('');
+  return upperCaseTutorial;
+}
+
+function upperCaseWord(word) {
+  const upperCaseFirstLetter = word[0].toUpperCase();
+  const remainingLetters = word.length > 1 ? word.substr(1) : ``;
+  const upperCaseWord = `${upperCaseFirstLetter}${remainingLetters}`;
+  return upperCaseWord;
 }
